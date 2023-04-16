@@ -41,6 +41,11 @@ Route::middleware([
         return view('menuSnacks');
     })->name('menuSnacks');
 
+    //Ajustes
+    Route::get('/ajustesAlimentos', function () {
+        return view('ajustesAlimentos');
+    })->name('ajustesAlimentos');
+
 
 
 

@@ -118,7 +118,7 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Ajustes de la app') }}
                             </div>
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            <x-dropdown-link href="{{ route('ajustesAlimentos') }}">
                                 {{ __('Ajustes') }}
                             </x-dropdown-link>
                             <x-dropdown-link href="{{ route('profile.show') }}">
