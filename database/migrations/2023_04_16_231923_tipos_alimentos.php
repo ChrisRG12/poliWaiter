@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tiposAlimentos', function (Blueprint $table) {
+            $table->id();
+            $table->string('descripcion');
+
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tiposAlimentos');
     }
 };

@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('alimentos', function (Blueprint $table) {
+            $table->id();
+            $table->string('descripcion');
+            $table->float('precioVenta');
+            //$table->integer('tipoAlimento')->unsigned();
+            $table->foreignId('tipoAlimento')->constrained('tiposAlimentos'); 
+
+
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('alimentos');
     }
 };
