@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('tipoUsuario');
             // $table->integer('empleado')->unsigned();
             $table->foreignId('tipoDePago')->constrained('tiposDePago'); 
-            $table->foreignId('empleado')->constrained('personas'); 
+
 
             // $table->integer('tipoDePago')->references('id')->on('tiposDePago');
             // $table->integer('empleado')->references('id')->on('personas');
