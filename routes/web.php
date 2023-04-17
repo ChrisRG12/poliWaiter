@@ -78,5 +78,7 @@ Route::middleware([
         Route::get('ingredientes/show/{id}',[controladorIngredientes::class,'show'])->name('ingredientes.show');
         //Delete
         Route::delete('ingredientes/eliminar/{id}',[controladorIngredientes::class,'destroy'])->name('ingredientes.destroy');
+        //Export
+        Route::get('alimentos/exportar',[controladorIngredientes::class,'export'])->name('ingredientes.export');
 
 });

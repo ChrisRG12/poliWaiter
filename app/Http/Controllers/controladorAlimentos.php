@@ -109,6 +109,6 @@ class controladorAlimentos extends Controller
     
         $pdf = \PDF::loadView('alimentosExport', compact('consultaAlimentos'));
     
-        return $pdf->download('archivo.pdf');
+        return $pdf->download('Alimentos.pdf');
     }
 }
