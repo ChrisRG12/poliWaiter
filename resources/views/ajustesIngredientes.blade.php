@@ -24,6 +24,14 @@ justify-content: center; margin-bottom:10px">
 
 
                 <div class="relative overflow-x-auto">
+                     {{-- Barra búsqueda --}}
+       <form class="d-flex float-right mr-3 mt-3" role="search">
+    <input name="filtrar" value="{{$filtrar}}" type="search" placeholder="Filtrar" id="small-input" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <button class="btn btn-primary" type="submit"></button>
+      </form>
+
+
+
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
