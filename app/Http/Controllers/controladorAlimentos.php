@@ -100,4 +100,15 @@ class controladorAlimentos extends Controller
         DB::table('alimentos')->where('id',$id)->delete();
         return redirect('/ajustes/alimentos');
     }
+
+
+    //Exportar los alimentos a pdf
+    public function export()
+    {
+        $consultaAlimentos = DB::table('alimentos')->get();
+    
+        $pdf = \PDF::loadView('alimentosExport', compact('consultaAlimentos'));
+    
+        return $pdf->download('archivo.pdf');
+    }
 }
