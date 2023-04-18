@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidadorIngredientes;
 use DB;
 
 class controladorIngredientes extends Controller
@@ -35,7 +36,7 @@ class controladorIngredientes extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidadorIngredientes $request)
     {
         DB::table('ingredientes')->insert([
             "descripcion" => $request->input('descripcion'),
@@ -45,7 +46,7 @@ class controladorIngredientes extends Controller
            
         ]);
 
-        return redirect('/ajustes/ingredientes');
+        return redirect('/ajustes/ingredientes')->with('IngredienteAgregado','abc');
     }
 
 
@@ -68,7 +69,7 @@ class controladorIngredientes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidadorIngredientes $request, $id)
     {
         DB::table('ingredientes')->where('id',$id)->update([
             "descripcion" => $request->input('descripcion'),
@@ -77,7 +78,7 @@ class controladorIngredientes extends Controller
             "precioVenta" => $request->input('precioVenta'),
         ]);
 
-        return redirect('/ajustes/ingredientes')->with('actualizacion','confirmarIngrediente');
+        return redirect('/ajustes/ingredientes')->with('actualizacion','confirmarIngrediente')->with('IngredienteEditado','abc');
     }
 
 
@@ -104,7 +105,7 @@ class controladorIngredientes extends Controller
     {
         DB::table('ingredientes')->where('id',$id)->delete();
 
-        return redirect('/ajustes/ingredientes');
+        return redirect('/ajustes/ingredientes')->with('IngredienteEliminado','abc');
     }
 
      //Exportar los alimentos a pdf

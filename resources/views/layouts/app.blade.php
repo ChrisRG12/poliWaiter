@@ -43,5 +43,20 @@
         @stack('modals')
 
         @livewireScripts
+
+        @stack('js')
+
+        <script>
+            Livewire.on('alert',function(message)){
+                Swal.fire(
+                    'Good job!',
+                    message,
+                    'succes'
+                )
+            }
+        
+        </script>
+
+
     </body>
 </html>

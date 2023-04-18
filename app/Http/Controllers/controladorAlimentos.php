@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidadorAlimentos;
 use DB;
 
 class controladorAlimentos extends Controller
@@ -35,7 +36,7 @@ class controladorAlimentos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidadorAlimentos $request)
     {
         DB::table('alimentos')->insert([
             "descripcion" => $request->input('descripcion'),
@@ -44,7 +45,7 @@ class controladorAlimentos extends Controller
            
         ]);
 
-        return redirect('/ajustes/alimentos');
+        return redirect('/ajustes/alimentos')->with('AlimentoAgregado','abc');
     }
 
     /**
@@ -78,7 +79,7 @@ class controladorAlimentos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidadorAlimentos $request, $id)
     {
         DB::table('alimentos')->where('id',$id)->update([
             "descripcion" => $request->input('descripcion'),
@@ -86,7 +87,7 @@ class controladorAlimentos extends Controller
             "precioVenta" => $request->input('precioVenta'),
         ]);
 
-        return redirect('/ajustes/alimentos');
+        return redirect('/ajustes/alimentos')->with('AlimentoEditado','abc');
     }
 
     /**
@@ -98,7 +99,7 @@ class controladorAlimentos extends Controller
     public function destroy($id)
     {
         DB::table('alimentos')->where('id',$id)->delete();
-        return redirect('/ajustes/alimentos');
+        return redirect('/ajustes/alimentos')->with('AlimentoEliminado','abc');
     }
 
 

@@ -1,6 +1,12 @@
+
+
 <x-app-layout >
+   
+
     <x-slot name="header" >
         <a href="{{route('agregarAlimento')}}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Nuevo Alimento</a>
+       
+        
     </x-slot>
 
     
@@ -96,4 +102,44 @@ justify-content: center; margin-bottom:10px">
             </div>
         </div>
     </div>
+
+@if(session()->has('AlimentoAgregado'))
+    @push('js')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script> Swal.fire(
+
+        'Correcto!',
+        'Alimento guardado',
+        'success'  ) </script>
+        @endpush
+@endif
+
+@if(session()->has('AlimentoEditado'))
+    @push('js')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script> Swal.fire(
+
+        'Correcto!',
+        'Alimento editado',
+        'success'  ) </script>
+        @endpush
+@endif
+
+@if(session()->has('AlimentoEliminado'))
+    @push('js')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script> Swal.fire(
+
+        'Correcto!',
+        'Alimento eliminado',
+        'success'  ) </script>
+        @endpush
+@endif
+
 </x-app-layout>

@@ -115,4 +115,42 @@ justify-content: center; margin-bottom:10px">
             </div>
         </div>
     </div>
+
+    @if(session()->has('IngredienteAgregado'))
+        @push('js')
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script> Swal.fire(
+
+            'Correcto!',
+            'Ingrediente guardado',
+            'success'  ) </script>
+            @endpush
+    @endif
+
+    @if(session()->has('IngredienteEditado'))
+        @push('js')
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script> Swal.fire(
+
+            'Correcto!',
+            'Ingrediente editado',
+            'success'  ) </script>
+            @endpush
+        @endif
+@if(session()->has('IngredienteEliminado'))
+        @push('js')
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script> Swal.fire(
+
+            'Correcto!',
+            'Ingrediente eliminado',
+            'success'  ) </script>
+            @endpush
+@endif
 </x-app-layout>
