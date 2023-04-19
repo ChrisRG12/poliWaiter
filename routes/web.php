@@ -81,4 +81,9 @@ Route::middleware([
         //Export
         Route::get('ingredientes/exportar',[controladorIngredientes::class,'export'])->name('ingredientes.export');
 
+    //API
+        //usuarios
+        Route::get('usuariosAPI',[controladorAlimentos::class,'apiUsuarios'])->name('usuarios.api');
+        //Export
+        Route::get('usuariosAPI/exportar',[controladorAlimentos::class,'usuariosExport'])->name('usuarios.export');
 });

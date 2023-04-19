@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Http; 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorAlimentos;
 use DB;
@@ -112,4 +113,25 @@ class controladorAlimentos extends Controller
     
         return $pdf->download('Alimentos.pdf');
     }
+
+
+    //Prueba API ALIMENTOS
+    public function apiUsuarios(){
+        
+        $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
+        $usuariosArray = $usuarios->json();
+        return view('usuariosApi', compact('usuariosArray'));
+    }
+
+    //Exportar los usuarios a pdf
+    public function usuariosExport()
+    {
+        $usuarios = HTTP::get('https://jsonplaceholder.typicode.com/users');
+        $usuariosArray = $usuarios->json();
+    
+        $pdf = \PDF::loadView('usuariosExport', compact('usuariosArray'));
+    
+        return $pdf->download('usuarios.pdf');
+    }
+
 }
