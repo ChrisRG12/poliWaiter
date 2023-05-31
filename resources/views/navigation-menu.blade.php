@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('menuAlimentos') }}" :active="request()->routeIs('')">
+                    <x-nav-link href="{{ route('carrito') }}" :active="request()->routeIs('carrito')">
                         {{ __('Carrito de compras') }}
                     </x-nav-link>
                 </div>

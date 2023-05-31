@@ -118,16 +118,22 @@ class controladorAlimentos extends Controller
     // Obtener los productos del carrito (ejemplo)
     $productos = [
         [
-            'nombre' => 'Producto 1',
-            'precio' => 10.00,
+            'nombre' => 'Torta Jamón',
+            'precio' => 20.00,
             'cantidad' => 2,
-            'subtotal' => 20.00
+            'subtotal' => 40.00
         ],
         [
-            'nombre' => 'Producto 2',
+            'nombre' => 'Agua Horchata',
             'precio' => 15.00,
             'cantidad' => 1,
             'subtotal' => 15.00
+        ],
+        [
+            'nombre' => 'Helado Limón',
+            'precio' => 17.00,
+            'cantidad' => 1,
+            'subtotal' => 17.00
         ]
     ];
 
@@ -137,14 +143,9 @@ class controladorAlimentos extends Controller
         $total += $producto['subtotal'];
     }
 
-    // Renderizar la vista en Blade
-    require_once 'vendor/autoload.php';
+// Puedes agregar más lógica aquí, como agregar o eliminar productos del carrito.
 
-    $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/views');
-    $twig = new \Twig\Environment($loader);
-    echo $twig->render('carrito.blade.php', [
-        'productos' => $productos,
-        'total' => $total
-    ]);
+// Renderiza la vista utilizando Blade
+return view('carrito', compact('productos', 'total'));
 }
 }

@@ -62,7 +62,7 @@ Route::middleware([
     //Export
     Route::get('alimentos/exportar',[controladorAlimentos::class,'export'])->name('alimento.export');
     //Carrito
-    Route::get('alimentos/exportar',[controladorAlimentos::class,'export'])->name('alimento.export');
+    Route::get('carrito',[controladorAlimentos::class,'carrito'])->name('carrito');
 
 
     //Ingredientes
