@@ -111,4 +111,40 @@ class controladorAlimentos extends Controller
     
         return $pdf->download('Alimentos.pdf');
     }
+
+    
+    public function carrito(){
+    
+    // Obtener los productos del carrito (ejemplo)
+    $productos = [
+        [
+            'nombre' => 'Producto 1',
+            'precio' => 10.00,
+            'cantidad' => 2,
+            'subtotal' => 20.00
+        ],
+        [
+            'nombre' => 'Producto 2',
+            'precio' => 15.00,
+            'cantidad' => 1,
+            'subtotal' => 15.00
+        ]
+    ];
+
+    // Calcular el total del carrito
+    $total = 0;
+    foreach ($productos as $producto) {
+        $total += $producto['subtotal'];
+    }
+
+    // Renderizar la vista en Blade
+    require_once 'vendor/autoload.php';
+
+    $loader = new \Twig\Loader\FilesystemLoader(__DIR__.'/views');
+    $twig = new \Twig\Environment($loader);
+    echo $twig->render('carrito.blade.php', [
+        'productos' => $productos,
+        'total' => $total
+    ]);
+}
 }

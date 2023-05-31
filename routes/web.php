@@ -61,6 +61,8 @@ Route::middleware([
     Route::delete('alimentos/eliminar/{id}',[controladorAlimentos::class,'destroy'])->name('alimento.destroy');
     //Export
     Route::get('alimentos/exportar',[controladorAlimentos::class,'export'])->name('alimento.export');
+    //Carrito
+    Route::get('alimentos/exportar',[controladorAlimentos::class,'export'])->name('alimento.export');
 
 
     //Ingredientes
