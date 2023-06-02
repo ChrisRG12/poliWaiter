@@ -23,6 +23,54 @@ margin-left: 30px;"> <a hidden
 
                 <div class="relative overflow-x-auto">
       
+                    <div class="container mt-3 mb-3">
+                        <h1 style="color: white; font-size: 20px; text-align: center;">Cronómetro</h1>
+                        <div style="color: white; font-size: 15px; text-align: center;" id="cronometro">00:00</div>
+                    
+                        <script>
+                            // Variables para el cronómetro
+                            var minutos = 1;
+                            var segundos = 0;
+                    
+                            // Función para actualizar el cronómetro
+                            function actualizarCronometro() {
+                                var cronometroElemento = document.getElementById("cronometro");
+                                cronometroElemento.textContent = formatTime(minutos) + ":" + formatTime(segundos);
+                            }
+                    
+                            // Función para formatear los valores de tiempo a dos dígitos
+                            function formatTime(time) {
+                                return time < 10 ? "0" + time : time;
+                            }
+                    
+                            // Función para redirigir a la vista en Laravel
+                            function redirigirAVista() {
+                                window.location.href = '/menuAlimentos';
+                            }
+                    
+                            // Función para actualizar el tiempo restante y comprobar si se ha alcanzado el límite
+                            function actualizarTiempoRestante() {
+                                segundos--;
+                                if (segundos < 0) {
+                                    segundos = 59;
+                                    minutos--;
+                                }
+                                if (minutos === 0 && segundos === 0) {
+                                    redirigirAVista();
+                                }
+                                actualizarCronometro();
+                            }
+                    
+                            // Función para iniciar el cronómetro
+                            function iniciarCronometro() {
+                                actualizarCronometro();
+                                setInterval(actualizarTiempoRestante, 1000); // Actualizar cada segundo
+                            }
+                    
+                            // Iniciar el cronómetro al cargar la página
+                            window.onload = iniciarCronometro;
+                        </script>
+                    </div>
 
           @if (count($productos) > 0)
 
